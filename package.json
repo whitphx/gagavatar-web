@@ -1,0 +1,47 @@
+{
+  "name": "@whitphx/gagavatar-web",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Render GAGAvatar avatars in the browser on WebGPU: avatar bundles, neck turn, ONNX Runtime Web refiner and frame pacing",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "files": ["dist", "THIRD_PARTY_NOTICES.md"],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "keywords": ["webgpu", "gaussian-splatting", "gagavatar", "avatar", "onnxruntime-web"],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.build.json && vite build",
+    "build:example": "vite build --mode example",
+    "typecheck": "tsc",
+    "test": "vitest run",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "webgpu-gaussian-rasterizer": "workspace:^"
+  },
+  "peerDependencies": {
+    "onnxruntime-web": ">=1.30.0"
+  },
+  "peerDependenciesMeta": {
+    "onnxruntime-web": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@webgpu/types": "0.1.74",
+    "onnxruntime-web": "1.31.1",
+    "typescript": "7.0.2",
+    "vite": "8.3.6",
+    "vitest": "5.1.0",
+    "webgpu": "0.6.2"
+  },
+  "packageManager": "pnpm@10.34.1"
+}

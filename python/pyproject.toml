@@ -1,0 +1,29 @@
+[project]
+name = "gagavatar-web"
+version = "0.1.0"
+description = "Export GAGAvatar avatars and upsamplers for the @whitphx/gagavatar-web browser renderer"
+readme = "README.md"
+license = "MIT"
+authors = [
+    { name = "Yuichiro Tachibana (Tsuchiya)", email = "t.yic.yt@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+]
+
+[project.scripts]
+gagavatar-web = "gagavatar_web.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.uv]
+# Holds back releases younger than 14 days.
+exclude-newer = "14 days"
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+]

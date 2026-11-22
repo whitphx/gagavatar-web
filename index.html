@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GAGAvatar web renderer</title>
+    <style>
+      :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+      body { margin: 0; padding: 16px; display: grid; gap: 12px; justify-items: start; max-width: 720px; }
+      canvas { width: min(512px, 100%); aspect-ratio: 1; background: #000; }
+      fieldset { display: grid; gap: 8px; border: 1px solid color-mix(in srgb, currentColor 30%, transparent); border-radius: 6px; }
+    </style>
+  </head>
+  <body>
+    <h1>GAGAvatar web renderer</h1>
+    <p>
+      A made-up avatar, a sphere of Gaussians with a mouth on a neck and shoulders, is splatted on WebGPU at
+      moving head vertices and shown without a refiner, its first three feature channels as colour. The head
+      turns on the neck with the body kept still, or with the whole bust as GAGAvatar's camera turns it.
+    </p>
+    <canvas id="view" width="512" height="512"></canvas>
+    <label><input type="checkbox" id="body-still" checked /> keep the body still</label>
+    <fieldset>
+      <legend>Your own avatar</legend>
+      <p>
+        Files you exported with the <code>gagavatar-web</code> Python package stay in this browser.
+        Without a refiner, the page shows the bundle's first three feature channels.
+      </p>
+      <label>Bundle (.gsb) <input type="file" id="bundle" accept=".gsb" /></label>
+      <label>Refiner (the .onnx file and its .json) <input type="file" id="refiner" accept=".onnx,.json" multiple /></label>
+    </fieldset>
+    <output id="status" aria-live="polite"></output>
+    <script type="module" src="/examples/synthetic/main.ts"></script>
+  </body>
+</html>

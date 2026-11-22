@@ -1,0 +1,3 @@
+[submodule "vendor/webgpu-gaussian-rasterizer"]
+	path = vendor/webgpu-gaussian-rasterizer
+	url = https://github.com/whitphx/webgpu-gaussian-rasterizer.git

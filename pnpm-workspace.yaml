@@ -1,0 +1,8 @@
+packages:
+  # Until webgpu-gaussian-rasterizer is on npm, the renderer builds against
+  # this checkout of it.
+  - vendor/webgpu-gaussian-rasterizer
+
+# Holds back releases younger than 14 days, transitive ones included
+# (https://pnpm.io/settings#minimumreleaseage, in minutes).
+minimumReleaseAge: 20160
