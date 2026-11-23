@@ -86,7 +86,7 @@ describe('patchOrtGraphCapture', () => {
   test('patches the installed ONNX Runtime Web once and recognises its own output', () => {
     const { source: patched, version } = patchOrtGraphCapture(source);
     expect(version).toBe('1.31.1');
-    expect(patched.length).toBe(source.length + '||L&&i[P]?.[3]==="gpu-buffer"'.length);
+    expect(patched.length).toBe(source.length + '||L&&i[P]?.[3]==="gpu-buffer"'.length + 'L||()'.length);
     expect(patchOrtGraphCapture(patched).source).toBe(patched);
   });
 

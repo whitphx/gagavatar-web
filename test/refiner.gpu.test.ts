@@ -56,6 +56,11 @@ describe('createRefiner', () => {
     expect(wrong.check?.ok).toBe(false);
     expect(logs).toEqual([expect.stringMatching(/check failed/)]);
     await wrong.release();
+    // Capture keeps working for a session that is not the module's first.
+    const again = await createRefiner({ ort, model, spec, graphCapture: true, log: (m) => logs.push(m) });
+    expect(logs).toHaveLength(1);
+    expect(again.graphCapture).toBe(true);
+    await again.release();
     await refiner.release();
   });
 });
